@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TNEA Counselling Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">🎓</div>
+                <div>
+                    <h2>TNEA Guide</h2>
+                    <p>RAG Counselling Bot</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>What I can help with</h3>
+                <ul>
+                    <li>Cutoff prediction</li>
+                    <li>College suggestions</li>
+                    <li>Branch guidance</li>
+                    <li>Eligibility details</li>
+                    <li>Counselling rules</li>
+                </ul>
+            </div>
+
+            <div class="sample-box">
+                <h3>Try asking</h3>
+
+                <button class="sample-question">
+                    I have 145 cutoff what college will I get near Coimbatore?
+                </button>
+
+                <button class="sample-question">
+                    What is the eligibility criteria for TNEA?
+                </button>
+
+                <button class="sample-question">
+                    What do you think about PSG College?
+                </button>
+            </div>
+
+            <button id="clearChat" class="clear-btn">Clear Chat</button>
+        </aside>
+
+        <main class="chat-section">
+
+            <header class="chat-header">
+                <div>
+                    <h1>TNEA Counselling Assistant</h1>
+                    <p>Ask about colleges, cutoff, branches, counselling and eligibility</p>
+                </div>
+
+                <div class="status">
+                    <span></span>
+                    Online
+                </div>
+            </header>
+
+            <section id="chatBox" class="chat-box">
+                <div class="message bot-message">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">
+                        <strong>Hello!</strong><br>
+                        I am your TNEA counselling assistant. Ask me about cutoff prediction, college details, branches, eligibility, reservation, or counselling process.
+                    </div>
+                </div>
+            </section>
+
+            <section class="input-section">
+                <textarea id="userInput" placeholder="Type your TNEA question here..." rows="1"></textarea>
+                <button id="sendBtn">
+                    <span>Send</span>
+                    <b>➤</b>
+                </button>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
