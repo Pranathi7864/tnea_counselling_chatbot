@@ -103,16 +103,48 @@ Retrieved Context
 Gemini API
    ↓
 Structured Student-Friendly Answer
-Why Hybrid RAG?
-Normal RAG:
+
+
+## Why Hybrid RAG?
+
+### Normal RAG
+
+```text
 User Query → Vector Search → LLM Answer
-Problem:
-Vector search is good for document questions,
-but it may give inaccurate results for numerical cutoff queries.
-Hybrid RAG:
+```
+
+### Problem with Normal RAG
+
+Vector search is good for document-based questions, but it may return inaccurate results for numerical cutoff queries.
+
+For example, a question like:
+
+```text
+I have 145 cutoff. What college will I get near Coimbatore?
+```
+
+needs exact filtering from cutoff data, not only semantic similarity search.
+
+### Hybrid RAG Approach
+
+```text
 Structured Excel Search + FAISS Document Search + Gemini Answer Generation
-Benefits:
+```
+
+### How This Project Handles Queries
+
+| Query Type | Retrieval Method |
+|---|---|
+| Cutoff prediction | Excel-based structured search |
+| College filtering | Excel + location/category/branch filtering |
+| College details | Fuzzy college search |
+| Eligibility, reservation, certificates | FAISS document retrieval |
+| Final response | Gemini answer generation |
+
+### Benefits
+
 - More accurate cutoff prediction
-- Better college filtering
+- Better college and branch filtering
 - Reliable document-based answers
-- Gemini gives only the final structured explanation
+- Gemini generates only the final structured explanation
+- Reduces wrong results from vector search for numerical queries
